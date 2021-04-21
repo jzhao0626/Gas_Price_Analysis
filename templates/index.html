@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Mission to Mars</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<style>
+    table {
+        background: rgba(255,255,255,0.5);
+        color: black;
+    }
+</style>
+
+<body style="color:white; background-repeat: no-repeat; background-attachment: fixed; background-size: 100% 100%; background-image: url('https://www.enjpg.com/img/2020/outer-space-background-9.jpg');">
+
+    <div class="container">
+
+        <div class="jumbotron text-center" style="background-color: transparent;">
+            <h1>Mission to Mars</h1>
+            <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
+        </div>
+
+        <div class="row" content="Latest_Mars_News">
+
+            <div class="col-md-12" style="border:3px rgba(255,255,255,0.5) solid;">
+                <h3 class="heading">Latest News</h3>
+                <h5>{{ mars_dict.news_title }}</h5>
+                <p>{{ mars_dict.news_paragraph }}</p>
+            </div>
+
+        </div>
+
+        <br>
+        <br>
+        <br>
+        <br>
+
+        <div class="row" content="Feature_Image_And_Mars_Facts" style="border:3px rgba(255,255,255,0.5) solid;">
+
+            <div class="col-md-7">
+                <h3 class="heading">Featured Image</h3>
+                <img src={{ mars_dict.featured_image_url }} alt="Featured_Image" width=100%>
+            </div>
+
+            <!-- <div class="col-md-1"></div> -->
+
+            <div class="col-md-5">
+                <h3 class="heading">Facts</h3>
+                {{ mars_dict.table_html|safe }}
+            </div>
+
+        </div>
+
+        <br>
+        <br>
+        <br>
+        <br>
+
+        <div class="row">
+
+            <div class="col-md-12" style="border:2px rgba(255,255,255,0.5) double;">
+                <h3>Mars Hemispheres</h3>
+            </div>
+            
+            {% for image in mars_dict.image_urls %}
+
+                <div class="col-md-6 Mars_Hemispheres" style="border:2px rgba(255,255,255,0.5) double;">
+
+                    <image src={{ image.img_url }} width=100% class="Mars_Hemispheres_Image">
+                    <h4 style="text-align: center">{{ image.title }}</h4>
+                </div>
+
+            {% endfor %}
+        
+        </div>
+
+        <br>
+        <br>
+        <br>
+        <br>
+
+    </div>
+
+</body>
+
+</html>
+
