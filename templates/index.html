@@ -1,93 +1,155 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="no-js" lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Mission to Mars</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> Elemental Solutions </title>
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+	<link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
+    <link rel="stylesheet" href="static/css/font-awesome.min.css">
+    <link href="static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="static/css/styles.css" rel="stylesheet">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    
 </head>
 
-<style>
-    table {
-        background: rgba(255,255,255,0.5);
-        color: black;
-    }
-</style>
-
-<body style="color:white; background-repeat: no-repeat; background-attachment: fixed; background-size: 100% 100%; background-image: url('https://www.enjpg.com/img/2020/outer-space-background-9.jpg');">
-
-    <div class="container">
-
-        <div class="jumbotron text-center" style="background-color: transparent;">
-            <h1>Mission to Mars</h1>
-            <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
-        </div>
-
-        <div class="row" content="Latest_Mars_News">
-
-            <div class="col-md-12" style="border:3px rgba(255,255,255,0.5) solid;">
-                <h3 class="heading">Latest News</h3>
-                <h5>{{ mars_dict.news_title }}</h5>
-                <p>{{ mars_dict.news_paragraph }}</p>
-            </div>
-
-        </div>
-
-        <br>
-        <br>
-        <br>
-        <br>
-
-        <div class="row" content="Feature_Image_And_Mars_Facts" style="border:3px rgba(255,255,255,0.5) solid;">
-
-            <div class="col-md-7">
-                <h3 class="heading">Featured Image</h3>
-                <img src={{ mars_dict.featured_image_url }} alt="Featured_Image" width=100%>
-            </div>
-
-            <!-- <div class="col-md-1"></div> -->
-
-            <div class="col-md-5">
-                <h3 class="heading">Facts</h3>
-                {{ mars_dict.table_html|safe }}
-            </div>
-
-        </div>
-
-        <br>
-        <br>
-        <br>
-        <br>
-
-        <div class="row">
-
-            <div class="col-md-12" style="border:2px rgba(255,255,255,0.5) double;">
-                <h3>Mars Hemispheres</h3>
-            </div>
-            
-            {% for image in mars_dict.image_urls %}
-
-                <div class="col-md-6 Mars_Hemispheres" style="border:2px rgba(255,255,255,0.5) double;">
-
-                    <image src={{ image.img_url }} width=100% class="Mars_Hemispheres_Image">
-                    <h4 style="text-align: center">{{ image.title }}</h4>
-                </div>
-
-            {% endfor %}
-        
-        </div>
-
-        <br>
-        <br>
-        <br>
-        <br>
-
+<body>
+    
+    <div id="mobile-menu-open" class="shadow-large">
+        <i class="fa fa-bars" aria-hidden="true"></i>
     </div>
+    <!-- End #mobile-menu-toggle -->
+    <header>
+        <div id="mobile-menu-close">
+            <span>Close</span> <i class="fa fa-times" aria-hidden="true"></i>
+        </div>
+        <ul id="menu" class="shadow">
+            <!-- <li>
+                <a href="#about">Home</a>
+            </li> -->
+            <li>
+                <a href="#education">National</a>
+            </li>
+            <li>
+                <a href="#projects">State</a>
+            </li>
+            <li>
+                <a href="#skills">Data</a>
+            </li>
+            <li>
+                <a href="#experience">Interesting Facts</a>
+            </li>
+            <li>
+                <a href="#contact">Questions?</a>
+            </li>
+        </ul>
+    </header>
+    <!-- End header -->
 
+    <div id="lead">
+        <div id="lead-content">
+            <!-- <h1>Elemental Solutions</h1>
+            <h2>Gas Price Dashboard</h2> -->
+            
+        </div>
+        <!-- End #lead-content -->
+
+        <!-- <div id="lead-overlay"></div> -->
+
+        <div id="lead-down">
+            <span>
+                <i class="fa fa-chevron-down" aria-hidden="true"></i>
+            </span>
+        </div>
+        <!-- End #lead-down -->
+    </div>
+    <!-- End #lead -->
+
+    <div id="education">
+        <h2 class="heading">National</h2>
+        <div id="plot"></div>
+       
+    </div>
+    <!-- End #education -->
+
+
+   
+
+    <div id="projects" class="background-alt">
+        <h2 class="heading">State</h2>
+        <div class="container">
+            <div class="row">
+               
+                </div>
+                <!-- End .project -->
+
+            </div>
+        </div>
+    </div>
+    <!-- End #projects -->
+
+    <div id="skills">
+        <h2 class="heading">Data</h2>
+        
+    </div>
+    <!-- End #skills -->
+
+    <div id="experience" class="background-alt">
+        <h2 class="heading">Interesting Facts</h2>
+        
+    </div>
+    <!-- End #experience -->
+
+    
+
+    <div id="contact">
+        <h2>Questions?</h2>
+        <div id="contact-form">
+            <form method="POST" action="https://formspree.io/f/myylybog">
+                <input type="hidden" name="_subject" value="Contact request from personal website" />
+                <input type="email" name="_replyto" placeholder="Your email" required>
+                <textarea name="message" placeholder="Your message" required></textarea>
+                <button type="submit">Send</button>
+            </form>
+        </div>
+        <!-- End #contact-form -->
+    </div>
+    <!-- End #contact -->
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-5 copyright">
+                    <p>
+                        Copyright &copy; 2021 Elemental Solutions
+                    </p>
+                </div>
+                <div class="col-sm-2 top">
+                    <span id="to-top">
+                        <i class="fa fa-chevron-up" aria-hidden="true"></i>
+                    </span>
+                </div>
+                <div class="col-sm-5 social">
+                    <ul>
+                        <li>
+                            <a href="https://github.com/jzhao0626/Project02" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- End footer -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="static/js/scripts.min.js"></script>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.7.1/d3-tip.min.js"></script>
+    <script src="static/js/plots.js"></script>
 </body>
 
 </html>
-
