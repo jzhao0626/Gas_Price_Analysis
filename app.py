@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect
+from flask import Flask, render_template, redirect, jsonify
 from flask_pymongo import PyMongo
 import json
 
@@ -30,37 +30,56 @@ else:
     print("No collection found. Nothing to drop.\n")
 
 print("Inserting new documents into the database")
-keywords = annual_JSON.keys()
-print(f"Number of documents in annual data: {len(keywords)}.")
-for keyword in keywords:
-    annual_dict = {}
-    annual_dict["Date"] = keyword
-    merged_annual_dict = {**annual_dict, **annual_JSON[keyword]}
-    Gas_DB.Gas_Annual.insert_one(merged_annual_dict)
 
-keywords = month_JSON.keys()
-print(f"Number of documents in month data: {len(keywords)}.")
-for keyword in keywords:
-    month_dict = {}
-    month_dict["Date"] = keyword
-    merged_month_dict = {**month_dict, **month_JSON[keyword]}
-    Gas_DB.Gas_Month.insert_one(merged_month_dict)
 
-keywords = disaster_JSON.keys()
-print(f"Number of documents in disaster data: {len(keywords)}.\n")
-for keyword in keywords:
-    disaster_dict = {}
-    disaster_dict["Date"] = keyword
-    merged_disaster_dict = {**disaster_dict, **disaster_JSON[keyword]}
-    Gas_DB.Disaster_Gas.insert_one(merged_disaster_dict)
+print(f"Number of documents in annual data: {len(annual_JSON)}.")
+for annual in annual_JSON:
+    # annual_dict = {}
+    # annual_dict["Date"] = keyword
+    # merged_annual_dict = {**annual_dict, **annual_JSON[keyword]}
+    Gas_DB.Gas_Annual.insert_one(annual)
 
 
 
-# @app.route("/")
-# def index():
-#     # return render_template("index.html", mars_dict=mars_dict)
+print(f"Number of documents in month data: {len(month_JSON)}.")
+for month in month_JSON:
+    # month_dict = {}
+    # month_dict["Date"] = keyword
+    # merged_month_dict = {**month_dict, **month_JSON[keyword]}
+    Gas_DB.Gas_Month.insert_one(month)
+
+
+
+print(f"Number of documents in disaster data: {len(disaster_JSON)}.\n")
+for disaster in disaster_JSON:
+    # disaster_dict = {}
+    # disaster_dict["Date"] = keyword
+    # merged_disaster_dict = {**disaster_dict, **disaster_JSON[keyword]}
+    Gas_DB.Disaster_Gas.insert_one(disaster)
+
+
+
+@app.route("/")
+def index():
+    
+    return render_template("index.html")
+
+
+
+@app.route("/data")
+
+def data():
+    disaster_dict_flask = [disaster for disaster in Gas_DB.Disaster_Gas.find({},{"_id": False})]
+    annual_dict_flask = [annual for annual in Gas_DB.Gas_Annual.find({},{"_id": False})]
+    month_dict_flask = [month for month in Gas_DB.Gas_Month.find({},{"_id": False})]
+    final_data = {
+        "disaster_json": disaster_dict_flask,
+        "annual_json": annual_dict_flask,
+        "state_json": month_dict_flask
+    }
+    return jsonify(final_data)
 
 
 
 if __name__ == "__main__":
-    app.run(debug=False)
+    app.run(debug=True)
