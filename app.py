@@ -75,7 +75,7 @@ def data():
     final_data = {
         "disaster_json": disaster_dict_flask,
         "annual_json": annual_dict_flask,
-        "state_json": month_dict_flask
+        "month_json": month_dict_flask
     }
     return jsonify(final_data)
 
