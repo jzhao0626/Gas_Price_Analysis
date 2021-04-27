@@ -1,4 +1,4 @@
-.button {
+.btn {
   display: inline-flex;
   height: 65px;
   padding: 0;
@@ -13,11 +13,11 @@
   cursor: pointer;
 }
 
-.button:hover {
+.btn:hover {
   background: #F49E92;
 }
 
-.button:active {
+.btn:activeclick {
   background: #FFCD7F;
 }
 
@@ -35,13 +35,13 @@
   background: rgba(0, 0, 0, 0.08);
 }
 
-.modal {
+/* .modal {
     position: fixed;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
-    /* scale(0) */
-    /* transition: 200ms ease-in-out; */
+    transform: translate(-50%, -50%) ; 
+    scale(0)   
+    transition: 200ms ease-in-out;
     border: 1px solid black;
     border-radius: 10px;
     z-index: 10;
@@ -50,9 +50,9 @@
     max-width: 80%;
 }
 
-/* .modal.active {
+.modal.active {
     transform: translate(-50%, -50%) scale(1);
-} */
+}
 
 .modal-header {
     padding: 10px 15px;
@@ -95,4 +95,4 @@
 #overlay.active {
     opacity: 1;
     pointer-events: all;
-}
+} */
