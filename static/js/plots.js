@@ -128,7 +128,7 @@ function getData(dataset) {
             }
         };
 
-        var layout = {
+        var layout1 = {
             title: "Gas Prices of the Year",
             xaxis: { title: "Date" },
             yaxis: { title: "Gas Prices ($)" },
@@ -148,7 +148,7 @@ function getData(dataset) {
                     showarrow: true,
                     arrowhead: 4,
                     ax: 0,
-                    ay: -50
+                    ay: -30
                 },
                 {
                     x: minDate,
@@ -178,82 +178,113 @@ function getData(dataset) {
         };
 
         data1 = [trace1]
-        Plotly.newPlot("plot1", data1, layout);
+        Plotly.newPlot("LinePlot_PriceDate", data1, layout1);
 
-        // console.log(selectedDisasterData)
-        // Object.entries(selectedDisasterData[0]).forEach(function([key, value]) {
-        //     disasterInfo.append("p").text(`${key}: ${value}`);
-        // });
+        var important_dates = ["Hurricane Katrina", "Great Recession", "Arab Spring", "Hurricane Isaac", "Increased Fracking", "Hurricane Harvey", "US/Iran Nuclear", "Global Pandemic"];
+        var important_prices = [2.955, 4.113, 3.965, 3.776, 2.318, 2.399, 2.911, 2.005]
+        var direct_labels = ["2005", "2008", "2011", "2012", "2015", "2017", "2018", "2020"]
 
-        // // Top 10 OTUs 
-        // var selectedSample = disaster.filter(data => { return data.id == dataset })
+        var trace2 = {
+            x: important_dates,
+            y: important_prices,
+            type: "bar",
+            text: direct_labels.map(String),
+            textposition: 'auto',
+            hoverinfo: 'none',
+            opacity: 0.5,
+            marker: {
+                color: 'rgb(158,202,225)',
+                line: {
+                    color: 'rgb(8,48,107)',
+                    width: 1.5
+                }
+            }
+        };
 
-        // var sortedOTU = selectedSample.sort((a, b) => a.sample_values - b.sample_values);
-        // OTUID = sortedOTU[0].otu_ids
-        // namedOTUID = sortedOTU[0].otu_ids.map(item => `OTU ${item}`);
-        // OTUValue = sortedOTU[0].sample_values
-        // OTULabel = sortedOTU[0].otu_labels;
-        // console.log(OTUID)
-        // console.log(namedOTUID)
-        // console.log(OTUValue)
-        // console.log(OTULabel)
+        var layout2 = {
+            title: "Gas Prices by Event",
+            xaxis: { title: "", tickangle: 0 },
+            yaxis: { title: "Gas Prices ($)" }
+        };
+
+        var data2 = [trace2];
+        Plotly.newPlot("BarPlot_PriceDisaster", data2, layout2);
+    });
+
+    // console.log(selectedDisasterData)
+    // Object.entries(selectedDisasterData[0]).forEach(function([key, value]) {
+    //     disasterInfo.append("p").text(`${key}: ${value}`);
+    // });
+
+    // // Top 10 OTUs 
+    // var selectedSample = disaster.filter(data => { return data.id == dataset })
+
+    // var sortedOTU = selectedSample.sort((a, b) => a.sample_values - b.sample_values);
+    // OTUID = sortedOTU[0].otu_ids
+    // namedOTUID = sortedOTU[0].otu_ids.map(item => `OTU ${item}`);
+    // OTUValue = sortedOTU[0].sample_values
+    // OTULabel = sortedOTU[0].otu_labels;
+    // console.log(OTUID)
+    // console.log(namedOTUID)
+    // console.log(OTUValue)
+    // console.log(OTULabel)
 
 
-        // // Plot
-        // var trace1 = {
-        //     y: namedOTUID.slice(0, 10).reverse(),
-        //     x: OTUValue.slice(0, 10).reverse(),
-        //     text: OTULabel.slice(0, 10).reverse(),
-        //     type: "bar",
-        //     orientation: "h"
-        // };
+    // // Plot
+    // var trace1 = {
+    //     y: namedOTUID.slice(0, 10).reverse(),
+    //     x: OTUValue.slice(0, 10).reverse(),
+    //     text: OTULabel.slice(0, 10).reverse(),
+    //     type: "bar",
+    //     orientation: "h"
+    // };
 
-        // var trace2 = {
-        //     x: OTUID,
-        //     y: OTUValue,
-        //     mode: 'markers',
-        //     text: OTULabel,
-        //     marker: {
-        //         size: OTUValue,
-        //         color: OTUID
-        //     }
-        // };
+    // var trace2 = {
+    //     x: OTUID,
+    //     y: OTUValue,
+    //     mode: 'markers',
+    //     text: OTULabel,
+    //     marker: {
+    //         size: OTUValue,
+    //         color: OTUID
+    //     }
+    // };
 
-        // var trace3 = {
-        //     value: selectedMetaData[0].wfreq,
-        //     title: { text: "Belly Button Washing Frequency" },
-        //     type: "indicator",
-        //     mode: "gauge+number",
-        //     gauge: {
-        //         axis: {
-        //             range: [null, 9]
-        //         },
-        //         steps: [
-        //             { range: [0, 1], color: "rgb(248, 243, 236)" },
-        //             { range: [1, 2], color: "rgb(240, 234, 220)" },
-        //             { range: [2, 3], color: "rgb(230, 225, 205)" },
-        //             { range: [3, 4], color: "rgb(218, 217, 190)" },
-        //             { range: [4, 5], color: "rgb(204, 209, 176)" },
-        //             { range: [5, 6], color: "rgb(189, 202, 164)" },
-        //             { range: [6, 7], color: "rgb(172, 195, 153)" },
-        //             { range: [7, 8], color: "rgb(153, 188, 144)" },
-        //             { range: [8, 9], color: "rgb(132, 181, 137)" }
-        //         ]
-        //     }
-        // }
+    // var trace3 = {
+    //     value: selectedMetaData[0].wfreq,
+    //     title: { text: "Belly Button Washing Frequency" },
+    //     type: "indicator",
+    //     mode: "gauge+number",
+    //     gauge: {
+    //         axis: {
+    //             range: [null, 9]
+    //         },
+    //         steps: [
+    //             { range: [0, 1], color: "rgb(248, 243, 236)" },
+    //             { range: [1, 2], color: "rgb(240, 234, 220)" },
+    //             { range: [2, 3], color: "rgb(230, 225, 205)" },
+    //             { range: [3, 4], color: "rgb(218, 217, 190)" },
+    //             { range: [4, 5], color: "rgb(204, 209, 176)" },
+    //             { range: [5, 6], color: "rgb(189, 202, 164)" },
+    //             { range: [6, 7], color: "rgb(172, 195, 153)" },
+    //             { range: [7, 8], color: "rgb(153, 188, 144)" },
+    //             { range: [8, 9], color: "rgb(132, 181, 137)" }
+    //         ]
+    //     }
+    // }
 
-        // var layout2 = {
-        //     xaxis: { title: "OTU ID" }
-        // }
+    // var layout2 = {
+    //     xaxis: { title: "OTU ID" }
+    // }
 
-        // data1 = [trace1]
-        // Plotly.newPlot("bar", data1);
+    // data1 = [trace1]
+    // Plotly.newPlot("bar", data1);
 
-        // data2 = [trace2]
-        // Plotly.newPlot("bubble", data2, layout2);
+    // data2 = [trace2]
+    // Plotly.newPlot("bubble", data2, layout2);
 
-        // data3 = [trace3]
-        // Plotly.newPlot("gauge", data3);
+    // data3 = [trace3]
+    // Plotly.newPlot("gauge", data3);
 
-    })
+
 };
