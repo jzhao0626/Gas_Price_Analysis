@@ -9,11 +9,14 @@
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
-    <link rel="stylesheet" href="static/css/font-awesome.min.css">
-    <link href="static/css/bootstrap.min.css" rel="stylesheet">
-    <link href="static/css/styles.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/font-awesome.min.css') }}">
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet">
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin="" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="static/css/leaflet.css">
 </head>
 
 <body>
@@ -70,39 +73,39 @@
 
     <div id="education">
         <h2 class="heading">National</h2>
-        <!-- <div class="container"> -->
-        <div class="row">
-            <div class="col-lg-1"></div>
+        <div class="container">
+            <div class="row">
 
-            <div class="col-lg-3">
+                <div class="col-lg-4">
 
-                <div class="row">
-                    <h5>Test Subject ID No.:</h5>
-                    <select id="selDataset" onchange="optionChanged(this.value)"></select>
+                    <div class="row">
+                        <h5 stype>Test Subject ID No.:</h5>
+                        <select id="selDataset1" onchange="optionChanged(this.value)"></select>
+                    </div>
+
+                    <br>
+                    <br>
+                    <br>
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Gas Price($)</th>
+                                <th>Incident Type</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
                 </div>
 
-                <br>
-
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Date</th>
-                            <th>Incident Type</th>
-                            <th>Gas Price($)</th>
-                        </tr>
-                    </thead>
-                    <tbody></tbody>
-                </table>
+                <div class="col-lg-8">
+                    <div id="plot1"></div>
+                </div>
             </div>
-
-            <div class="col-lg-8">
-                <div id="plot1"></div>
-            </div>
-
-            <div class="col-lg-1"></div>
         </div>
 
-        <!-- </div> -->
+
 
     </div>
     <!-- End #education -->
@@ -114,13 +117,18 @@
         <h2 class="heading">State</h2>
         <div class="container">
             <div class="row">
-                <div class="col-lg-4">
+                <div class="col-md-2">
+                    <div class="well">
+                        <h2>Year:</h2>
+                        <select id="selDataset2" onchange="optionChanged(this.value)"></select>
+                    </div>
+                </div>
+                <div class="col-md-10">
+                    <div id="mapid"></div>
                 </div>
             </div>
             <!-- End .project -->
-
         </div>
-    </div>
     </div>
     <!-- End #projects -->
 
@@ -179,10 +187,16 @@
     <!-- End footer -->
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="static/js/scripts.min.js"></script>
+    <script src="{{ url_for('static', filename='js/scripts.min.js') }}"></script>
     <script src="https://d3js.org/d3.v5.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.7.1/d3-tip.min.js"></script>
-    <script src="static/js/plots.js"></script>
+    <script src="{{ url_for('static', filename='js/plots.js') }}"></script>
+
+    <script type="text/javascript" src="static/js/config.js"></script>
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js" integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew==" crossorigin=""></script>
+    <script type="text/javascript" src="static/js/data.js"></script>
+    <script type="text/javascript" src="static/js/leaflet.js"></script>
+
 </body>
 
 </html>

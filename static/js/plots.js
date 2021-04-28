@@ -13,18 +13,11 @@
 // }
 
 d3.json("/data").then(data => {
-    // console.log(data)
     var disaster = data.disaster_json
-        // console.log(disaster)
-        // var annual = data.annual_json
-        // console.log(annual)
-        // var month = data.month_json
-        // console.log(month)
 
-    var dropdownMenu = d3.select("#selDataset");
+    var dropdownMenu = d3.select("#selDataset1");
 
     var yearList = [];
-
     disaster.forEach(item => {
         if (!(yearList.includes(item.Date.substring(0, 4)))) {
             yearList.push(item.Date.substring(0, 4))
@@ -35,17 +28,22 @@ d3.json("/data").then(data => {
         }
     })
 
+    dropdownMenu.append("option")
+        .text("All")
+        .attr("id", "All_Date")
+
     init()
+
 })
 
 
 
-d3.selectAll("#selDataset").on("change", getData);
+d3.selectAll("#selDataset1").on("change", getData);
 
 
 // Set the initial plot to show
 function init() {
-    var dropdownMenu = d3.select("#selDataset");
+    var dropdownMenu = d3.select("#selDataset1");
     // Assign the value of the dropdown menu option to a variable
     var dataset = dropdownMenu.property("value");
 
@@ -54,8 +52,8 @@ function init() {
 
 
 
-function getData() {
-    var dropdownMenu = d3.select("#selDataset");
+function getData(dataset) {
+    var dropdownMenu = d3.select("#selDataset1");
     var dataset = dropdownMenu.property("value");
     console.log(dataset)
 
@@ -68,8 +66,12 @@ function getData() {
         var month = data.month_json
         console.log(month)
 
-        // Demographic Info
-        var selectedDisasterData = disaster.filter(data => { return data.Date.substring(0, 4) == dataset })
+        if (dataset == "All") {
+            var selectedDisasterData = disaster;
+        } else {
+            var selectedDisasterData = disaster.filter(data => { return data.Date.substring(0, 4) == dataset });
+        }
+
 
         var disasterInfo = d3.select("tbody")
 
@@ -87,39 +89,38 @@ function getData() {
             return runningTotal + GasPrice;
         }
 
-        //extract gas prices into an array of numbers
+        // Extract gas prices into an array of numbers
         var price = selectedDisasterData.map(item => item.GasPrice);
         var date = selectedDisasterData.map(item => item.Date);
 
-        //add up all gas price total
+        // Add up all gas price total
         var gasTotal = price.reduce(addPrices, 0);
 
-        //calculate average and display
+        // Calculate average and display
         var avgGas = gasTotal / price.length;
 
         // Find the max and min price and the dates of them
         var maxGas = price.reduce(function(a, b) {
             return Math.max(a, b);
         })
-        var maxDate = disaster.filter(data => { return data.price == maxGas })[0].Date
-        console.log(maxDate)
+        var maxDate = selectedDisasterData.filter(data => { return data.GasPrice == maxGas })[0].Date
 
-        var minGas = GasPrice.reduce(function(a, b) {
+        var minGas = price.reduce(function(a, b) {
             return Math.min(a, b);
         })
-        var minDate = disaster.filter(data => { return data.price == minGas })[0].Date
-        console.log(minDate)
+        var minDate = selectedDisasterData.filter(data => { return data.GasPrice == minGas })[0].Date
 
-        console.log("gasprices:", price);
-        console.log("dates:", date);
-        console.log("avg combined gas", avgGas);
-        console.log("Max Gas Price:", maxGas);
-        console.log("Min Gas Price:", minGas);
+        console.log("Gas Prices:", price);
+        console.log("Dates:", date);
+        console.log("Average Gas Price", avgGas);
+        console.log("Max Gas Price:", maxGas, "On Date", maxDate);
+        console.log("Min Gas Price:", minGas, "On Date", minDate);
 
+        // Plot the line graph
         var trace1 = {
             x: date,
             y: price,
-            name: "Gas Prices and Dates",
+            name: "Gas Prices",
             type: "line",
             line: {
                 color: '#2C3860',
@@ -128,37 +129,37 @@ function getData() {
         };
 
         var layout = {
-            title: "Gas Prices",
-            xaxis: { title: "Year" },
+            title: "Gas Prices of the Year",
+            xaxis: { title: "Date" },
             yaxis: { title: "Gas Prices ($)" },
-            yaxis_range: [-4, 4],
             showlegend: true,
             legend: {
                 x: 1,
                 xanchor: 'right',
+                yanchor: 'bottom',
                 y: 1
             },
             annotations: [{
                     x: maxDate,
-                    y: maxGas + .2,
+                    y: maxGas + .05,
                     xref: 'xaxis',
                     yref: 'yaxis',
                     text: 'Highest Price',
                     showarrow: true,
                     arrowhead: 4,
                     ax: 0,
-                    ay: -30
+                    ay: -50
                 },
                 {
                     x: minDate,
-                    y: minGas + .2,
+                    y: minGas - .05,
                     xref: 'xaxis',
                     yref: 'yaxis',
                     text: 'Lowest Price',
                     showarrow: true,
                     arrowhead: 4,
                     ax: 0,
-                    ay: -50
+                    ay: 30
                 }
             ],
             shapes: [{
