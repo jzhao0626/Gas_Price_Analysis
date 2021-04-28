@@ -90,6 +90,7 @@ function getData() {
         //extract gas prices into an array of numbers
         var price = selectedDisasterData.map(item => item.GasPrice);
         var date = selectedDisasterData.map(item => item.Date);
+    
 
         //add up all gas price total
         var gasTotal = price.reduce(addPrices, 0);
@@ -101,13 +102,14 @@ function getData() {
         var maxGas = price.reduce(function(a, b) {
             return Math.max(a, b);
         })
-        var maxDate = disaster.filter(data => { return data.price == maxGas })[0].Date
+
+        var maxDate = disaster.filter(data => { return data.price == maxGas })[0]
         console.log(maxDate)
 
-        var minGas = GasPrice.reduce(function(a, b) {
+        var minGas = price.reduce(function(a, b) {
             return Math.min(a, b);
         })
-        var minDate = disaster.filter(data => { return data.price == minGas })[0].Date
+        var minDate = disaster.filter(data => { return data.price == minGas })[0]
         console.log(minDate)
 
         console.log("gasprices:", price);
