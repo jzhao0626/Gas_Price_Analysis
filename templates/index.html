@@ -9,11 +9,10 @@
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
-    <link rel="stylesheet" href="static/css/font-awesome.min.css">
-    <link href="static/css/bootstrap.min.css" rel="stylesheet">
-    <link href="static/css/styles.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/font-awesome.min.css') }}">
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet">
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-
 </head>
 
 <body>
@@ -179,10 +178,10 @@
     <!-- End footer -->
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="static/js/scripts.min.js"></script>
+    <script src="{{ url_for('static', filename='js/scripts.min.js') }}"></script>
     <script src="https://d3js.org/d3.v5.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.7.1/d3-tip.min.js"></script>
-    <script src="static/js/plots.js"></script>
+    <script src="{{ url_for('static', filename='js/plotsjs') }}"></script>
 </body>
 
 </html>

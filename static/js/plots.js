@@ -104,7 +104,7 @@ function getData() {
         var maxDate = disaster.filter(data => { return data.price == maxGas })[0].Date
         console.log(maxDate)
 
-        var minGas = GasPrice.reduce(function(a, b) {
+        var minGas = price.reduce(function(a, b) {
             return Math.min(a, b);
         })
         var minDate = disaster.filter(data => { return data.price == minGas })[0].Date
@@ -131,7 +131,6 @@ function getData() {
             title: "Gas Prices",
             xaxis: { title: "Year" },
             yaxis: { title: "Gas Prices ($)" },
-            yaxis_range: [-4, 4],
             showlegend: true,
             legend: {
                 x: 1,
