@@ -17,7 +17,7 @@
   background: #F49E92;
 }
 
-.btn:activeclick {
+.btn:focus {
   background: #FFCD7F;
 }
 
@@ -33,6 +33,10 @@
 .button__icon {
   font-size: 1.5em;
   background: rgba(0, 0, 0, 0.08);
+}
+
+.modal-body {
+  padding: 10px 15px;
 }
 
 /* .modal {
