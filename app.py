@@ -70,7 +70,6 @@ def data():
         "annual_json": annual_dict_flask,
         "month_json": month_dict_flask
     }
-
     return jsonify(final_data)
 
 
