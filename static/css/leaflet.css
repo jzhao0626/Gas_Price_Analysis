@@ -1,0 +1,37 @@
+body {
+    padding: 0;
+    margin: 0;
+  }
+  
+  #mapid,
+  body,
+  html {
+    height: 600px;
+    width: 100%;
+  }
+  
+  .leaflet-popup-content {
+    text-align: center;
+  }
+  
+  
+  
+  .row{
+    height:15px;
+  }
+  
+  .pr{
+    height:350px;
+    width :310px
+  }
+  
+  #sample-metadata1{
+    padding:0
+  }
+  #sample-metadata2{
+    padding:0
+  }
+  #sample-metadata3{
+    padding:0
+  }
+  

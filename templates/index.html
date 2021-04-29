@@ -14,6 +14,9 @@
     <link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet">
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin="" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="static/css/leaflet.css">
 </head>
 
 <body>
@@ -31,13 +34,13 @@
                 <a href="#about">Home</a>
             </li> -->
             <li>
-                <a href="#education">National</a>
+                <a href="/">National</a>
             </li>
             <li>
-                <a href="#projects">State</a>
+                <a href="/state">State</a>
             </li>
             <li>
-                <a href="#skills">Data</a>
+                <a href="/data">Data</a>
             </li>
             <li>
                 <a href="#experience">Interesting Facts</a>
@@ -70,58 +73,64 @@
 
     <div id="education">
         <h2 class="heading">National</h2>
-        <!-- <div class="container"> -->
-        <div class="row">
-            <div class="col-lg-1"></div>
+        <div class="container">
+            <div class="row">
 
-            <div class="col-lg-3">
+                <div class="col-md-3">
 
-                <div class="row">
-                    <h5>Test Subject ID No.:</h5>
-                    <select id="selDataset" onchange="optionChanged(this.value)"></select>
+
+                    <div class="well">
+                        <h5 stype>Gas Prices of the Year:</h5>
+                        <select id="selDataset1" onchange="optionChanged(this.value)"></select>
+                    </div>
+
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Event Info</h3>
+                        </div>
+                        <table style="width: 100%">
+                            <thead>
+                                <tr>
+                                    <th style="text-align: center">Date</th>
+                                    <th style="text-align: center">Gas Price($)</th>
+                                    <th style="text-align: center">Incident Type</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
                 </div>
 
-                <br>
-
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Date</th>
-                            <th>Incident Type</th>
-                            <th>Gas Price($)</th>
-                        </tr>
-                    </thead>
-                    <tbody></tbody>
-                </table>
+                <div class="col-md-9">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Gas Price Graph</h3>
+                        <div id="LinePlot_PriceDate"></div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div id="BarPlot_PriceDisaster"></div>
+                </div>
             </div>
 
-            <div class="col-lg-8">
-                <div id="plot1"></div>
-            </div>
-
-            <div class="col-lg-1"></div>
         </div>
 
-        <!-- </div> -->
+
+
+        <div class="col-md-12">
+            <div id="LinePlot_PriceDate"></div>
+        </div>
+
+    </div>
+
+    </div>
+
+
 
     </div>
     <!-- End #education -->
 
 
 
-
-    <div id="projects" class="background-alt">
-        <h2 class="heading">State</h2>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4">
-                </div>
-            </div>
-            <!-- End .project -->
-
-        </div>
-    </div>
-    </div>
     <!-- End #projects -->
 
     <div id="skills">
@@ -178,11 +187,25 @@
     </footer>
     <!-- End footer -->
 
+    <script src="{{ url_for('static', filename='js/config.js') }}"></script>
+    <!-- <script type="text/javascript" src="static/js/config.js"></script> -->
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js" integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew==" crossorigin=""></script>
+    <!-- <script type="text/javascript" src="static/js/data.js"></script> -->
+    <!-- <script type="text/javascript" src="static/js/leaflet.js"></script> -->
+    <script src="{{ url_for('static', filename='js/data.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/leaflet.js') }}"></script>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="{{ url_for('static', filename='js/scripts.min.js') }}"></script>
     <script src="https://d3js.org/d3.v5.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.7.1/d3-tip.min.js"></script>
+    <!-- <script src="{{ url_for('static', filename='js/scripts.min.js') }}"></script> -->
     <script src="{{ url_for('static', filename='js/plots.js') }}"></script>
+
+
+
 </body>
 
 </html>
+
+
+

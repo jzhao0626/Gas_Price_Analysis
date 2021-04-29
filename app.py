@@ -52,6 +52,11 @@ def index():
 
     return render_template("index.html")
 
+@app.route("/state")
+def state():
+
+    return render_template("state.html")
+
 @app.route("/data")
 def data():
     disaster_dict_flask = [disaster for disaster in Gas_DB.Disaster_Gas.find({}, {
@@ -65,6 +70,7 @@ def data():
         "annual_json": annual_dict_flask,
         "month_json": month_dict_flask
     }
+
     return jsonify(final_data)
 
 
