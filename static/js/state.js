@@ -69,11 +69,11 @@ function initGeoLayer() {
     filteredData = data.filter(year => year.Year == "2010")
 
     // create a list variable for the gas prices of each state to add to popup
-    gas_prices = []
+    gas_prices1 = []
 
     // Loop though the filtered data and push each price to the list variable created 
     Object.entries(filteredData[0]).forEach(([key, value]) => {
-        gas_prices.push(parseFloat(value).toFixed(2))
+        gas_prices1.push(parseFloat(value).toFixed(2))
     })
 
     // set a counter to index the correct gas price for your geoJson Layer
@@ -119,7 +119,7 @@ function initGeoLayer() {
 
                 // Giving each feature a pop-up with information pertinent to it
                 if (feature.properties.name != "Puerto Rico") {
-                    layer.bindPopup("<h3>" + feature.properties.name + "</h3> <hr> <h3>" + '$' + gas_prices[count] + "</h3>");
+                    layer.bindPopup("<h3>" + feature.properties.name + "</h3> <hr> <h3>" + '$' + gas_prices1[count] + "</h3>");
                 } else {
                     layer.bindPopup("<img class = pr src = https://carvedigital.net/wp-content/uploads/2018/11/out-of-office-carve-digital.jpg>")
                 }
