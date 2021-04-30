@@ -130,7 +130,7 @@ function getData(dataset) {
                     showarrow: true,
                     arrowhead: 4,
                     ax: 0,
-                    ay: -30
+                    ay: -20
                 },
                 {
                     x: minDate,
@@ -141,7 +141,7 @@ function getData(dataset) {
                     showarrow: true,
                     arrowhead: 4,
                     ax: 0,
-                    ay: 30
+                    ay: 20
                 }
             ],
             shapes: [{
