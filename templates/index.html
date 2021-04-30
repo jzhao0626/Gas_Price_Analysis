@@ -13,6 +13,8 @@
     <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet">
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+    <script src="{{ url_for('static', filename='js/home.js') }}"></script>
 
     <!-- <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin="" /> -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -26,8 +28,6 @@
     </div>
 
     <!-- End #mobile-menu-toggle -->
-
-
 
     <header>
         <div id="mobile-menu-close">
@@ -57,9 +57,12 @@
 
     <!-- End header -->
 
+    <div id="lead">
+        <h4>Analyzing Gas Price in the U.S.</h4>
+        </div>
+    </div>
+    
 
-
-    <div id="lead"></div>
     <!-- End #lead -->
 
 

@@ -111,6 +111,9 @@ function getData(dataset) {
             title: "Gas Prices of the Year",
             xaxis: { title: "Date" },
             yaxis: { title: "Gas Prices ($)" },
+            titlefont: {
+                "size": 24
+            },
             showlegend: true,
             legend: {
                 x: 1,
@@ -182,6 +185,9 @@ function getData(dataset) {
 
         var layout2 = {
             title: "Gas Prices by Event",
+            titlefont: {
+                "size": 24
+            },
             xaxis: { title: "", tickangle: 0 },
             yaxis: { title: "Gas Prices ($)" }
         };
