@@ -93,6 +93,7 @@ function getData(dataset) {
         var price = selectedDisasterData.map(item => item.GasPrice);
         var date = selectedDisasterData.map(item => item.Date);
 
+
         // Add up all gas price total
         var gasTotal = price.reduce(addPrices, 0);
 
@@ -103,12 +104,17 @@ function getData(dataset) {
         var maxGas = price.reduce(function(a, b) {
             return Math.max(a, b);
         })
+
+
         var maxDate = selectedDisasterData.filter(data => { return data.GasPrice == maxGas })[0].Date
+
 
         var minGas = price.reduce(function(a, b) {
             return Math.min(a, b);
         })
+
         var minDate = selectedDisasterData.filter(data => { return data.GasPrice == minGas })[0].Date
+
 
         console.log("Gas Prices:", price);
         console.log("Dates:", date);
