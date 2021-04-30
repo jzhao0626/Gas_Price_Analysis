@@ -1,0 +1,44 @@
+.btn {
+  display: inline-flex;
+  height: 65px;
+  padding: 0;
+  background: #2C3860;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  overflow: hidden;
+  font-family: "Quicksand", sans-serif;
+  font-size: 40px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+
+.btn:hover {
+  background: #F49E92;
+}
+
+.btn:focus {
+  background: #FFCD7F;
+}
+
+.button__text,
+.button__icon {
+  display: inline-flex;
+  align-items: center;
+  padding: 0 24px;
+  color: #fff;
+  height: 100%;
+}
+
+.button__icon {
+  font-size: 1.5em;
+  background: rgba(0, 0, 0, 0.08);
+}
+
+.close {
+  background: #fff;
+}
+
+
+

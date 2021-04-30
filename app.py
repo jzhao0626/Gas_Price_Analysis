@@ -57,6 +57,11 @@ def state():
 
     return render_template("state.html")
 
+@app.route("/IF")
+def IF():
+
+    return render_template("IF.html")
+
 @app.route("/data")
 def data():
     disaster_dict_flask = [disaster for disaster in Gas_DB.Disaster_Gas.find({}, {
