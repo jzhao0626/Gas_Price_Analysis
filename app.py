@@ -65,6 +65,12 @@ def state():
     return render_template("state.html")
 
 
+@app.route("/alternative")
+def alternative():
+
+    return render_template("chart.html")
+    
+
 @app.route("/interestingFact")
 def IF():
 

@@ -14,7 +14,7 @@
     <link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet">
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin="" />
+    <!-- <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin="" /> -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="static/css/leaflet.css">
 </head>
@@ -42,6 +42,9 @@
             </li>
             <li>
                 <a href="/state">State</a>
+            </li>
+            <li>
+                <a href="/alternative">Electric Vehicle</a>
             </li>
             <li>
                 <a href="/data">Data</a>
@@ -97,13 +100,6 @@
         </div>
     </div>
 
-    <div id="skills">
-        <h2 class="heading">Data Sources</h2>
-        <p>https://www.kaggle.com/headsortails/us-natural-disaster-declarations</p>
-        <p>https://fred.stlouisfed.org/series/GASREGW</p>
-        <p>https://www.eia.gov/opendata/qb.php?category=238627</p>
-    </div>
-
 
 
     <footer>
@@ -133,9 +129,9 @@
 
 
     <script src="{{ url_for('static', filename='js/config.js') }}"></script>
-    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js" integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew==" crossorigin=""></script>
+    <!-- <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js" integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew==" crossorigin=""></script> -->
     <script src="{{ url_for('static', filename='js/data.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/leaflet.js') }}"></script>
+    <!-- <script src="{{ url_for('static', filename='js/leaflet.js') }}"></script> -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://d3js.org/d3.v5.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.7.1/d3-tip.min.js"></script>
