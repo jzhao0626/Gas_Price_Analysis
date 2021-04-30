@@ -11,10 +11,11 @@
     Gulp and send to the /css folder which is then loaded on the page.
 */
 
+
 /* General Styles across pages */
 
 header {
-    background-color:#EFEFEF;
+    background-color: #EFEFEF;
 }
 
 .no-js #experience-timeline>div {
@@ -64,7 +65,9 @@ body {
     font-size: 16px
 }
 
+
 /* The Nav bar Styles */
+
 header {
     position: absolute;
     top: 0;
@@ -105,6 +108,7 @@ header a:hover {
     background: #eee;
     border-radius: 4px
 }
+
 header.active {
     display: block
 }
@@ -185,8 +189,6 @@ header.sticky {
     background: #f2f2f5
 }
 
-
-
 @keyframes pulsate {
     0% {
         transform: scale(1, 1)
@@ -199,9 +201,11 @@ header.sticky {
     }
 }
 
+
 /* Footer Styles */
+
 footer {
-    padding-top:5px;
+    padding-top: 5px;
 }
 
 .copyright {
@@ -233,7 +237,9 @@ footer {
     color: #2C3860
 }
 
+
 /* Homepage Styles*/
+
 #lead {
     position: relative;
     height: 100vh;
@@ -245,9 +251,8 @@ footer {
     background-repeat: no-repeat;
     overflow: hidden;
     background-size: contain;
-    background-position:center;
-    background-color:#EFEFEF
-    
+    background-position: center;
+    background-color: #EFEFEF
 }
 
 #lead-content {
@@ -259,16 +264,14 @@ footer {
     text-align: bottom;
 }
 
-#lead-content h1{
-    margin: 0
-    color: black;
+#lead-content h1 {
+    margin: 0 color: black;
     font-weight: 900;
     font-size: 5em;
     text-transform: uppercase;
     letter-spacing: 0.05em;
     line-height: 0.9em
 }
-
 
 #lead-overlay {
     position: absolute;
@@ -282,43 +285,44 @@ footer {
     z-index: 1
 }
 
-
 #lead h4 {
     text-align: center;
-    font-size:50px;
-    font-weight:bold;
-    margin-top:530px;
-    animation:3s fadeIn;
+    font-size: 50px;
+    font-weight: bold;
+    margin-top: 85vh;
+    animation: 3s fadeIn;
     animation-delay: 2s;
-    animation-fill-mode:forwards;
-    visibility:hidden;
+    animation-fill-mode: forwards;
+    visibility: hidden;
     font-family: 'Lato', sans-serif;
 }
 
 @keyframes fadeIn {
     0% {
-      opacity:0;
+        opacity: 0;
     }
     100% {
-      visibility: visible;
-      opacity:1;
+        visibility: visible;
+        opacity: 1;
     }
-  }
+}
 
 
 /* National part styles */
+
 #national {
     padding: 50px 15px;
     border-bottom: 1px solid #dcd9d9;
     text-align: center;
     margin: 30px auto;
-    background-color:#EFEFEF;
+    background-color: #EFEFEF;
 }
 
 #national h2 {
     color: #374054;
     margin-bottom: 10px 40px;
 }
+
 
 /* States Styles */
 
@@ -327,7 +331,7 @@ footer {
     margin: 30px auto;
     border-bottom: 1px solid #dcd9d9;
     text-align: center;
-    background-color:#efefef;
+    background-color: #efefef;
 }
 
 #projects h2 {
@@ -337,15 +341,18 @@ footer {
 
 
 /* Chart styles */
+
 #chart {
-    background-color:#efefef;
-    padding-top: 100px;
+    background-color: #efefef;
+    padding: 50px 15px;
+    border-bottom: 1px solid #dcd9d9;
+    text-align: center;
+    margin: 30px auto;
 }
 
 #chart h2 {
     color: #374054;
-    margin-left:450px;
-    text-align: center;
+    margin-bottom: 10px 40px;
 }
 
 #sources {
@@ -368,6 +375,7 @@ footer {
     font-size: 1.2em
 }
 
+
 /* Interesting Facts Styles */
 
 .btn-rounded-white {
@@ -386,21 +394,23 @@ footer {
 }
 
 .btn {
-    margin-right:15px;
+    margin-right: 15px;
 }
 
 .qna-img {
-    background-color:#EFEFEF;
-    border-color:#EFEFEF;
+    background-color: #EFEFEF;
+    border-color: #EFEFEF;
     background-size: contain;
-    height:80vh;
+    height: 80vh;
 }
 
 .row {
-    background-color:#EFEFEF;
+    background-color: #EFEFEF;
 }
 
+
 /* Media Query */
+
 
 /* @media only screen and (max-width: 750px) {
     #experience-timeline:before,
