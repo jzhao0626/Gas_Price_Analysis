@@ -14,31 +14,6 @@ html {
     text-align: center;
 }
 
-.legend {
-    padding: 6px 8px;
-    font: 12px Arial, Helvetica, sans-serif;
-    font-weight: bold;
-    color: #555;
-    background: #fff;
-    background: rgba(255, 255, 255, 0.8);
-    border-radius: 5px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-}
-
-.legend ul {
-    padding: 0px;
-    margin: 0px;
-    clear: both;
-    list-style-type: none;
-}
-
-.legend li {
-    display: inline-block;
-    width: 60px;
-    height: 70px;
-    text-align: center;
-}
-
 .row {
     height: 15px;
 }
@@ -46,4 +21,16 @@ html {
 .pr {
     height: 350px;
     width: 310px
+}
+
+#sample-metadata1 {
+    padding: 0
+}
+
+#sample-metadata2 {
+    padding: 0
+}
+
+#sample-metadata3 {
+    padding: 0
 }

@@ -29,13 +29,13 @@ function createID() {
 
     //retrieve each year for dropdown and append options for each year
     var years = states_data.map(dict => dict.Year)
-    years.forEach(id => d3.select('#selDataset2').append('option').text(id).property("value", id))
+    years.forEach(id => d3.select('#selDataset').append('option').text(id).property("value", id))
 }
 
 function optionChanged() {
 
     // select the current year and store it in variable to filter data
-    var currentID = d3.selectAll("#selDataset2").node().value;
+    var currentID = d3.selectAll("#selDataset").node().value;
     console.log(currentID)
 
     // set state data to a variable to filter 
@@ -51,7 +51,6 @@ function optionChanged() {
     Object.entries(filteredData[0]).forEach(([key, value]) => {
         gas_prices.push(parseFloat(value).toFixed(2))
     })
-    console.log(gas_prices)
 
     // set a counter to index the correct gas price for your geoJson Layer
     count = 1
@@ -59,6 +58,7 @@ function optionChanged() {
     //create geoJSON file path 
     var link = "static/data/states.geojson";
     updateGeoLayer(link, gas_prices)
+    stateStats(currentID)
 
 }
 
@@ -129,7 +129,7 @@ function initGeoLayer() {
         });
         layer.addTo(myMap)
     });
-
+    stateStats("2010")
 }
 
 
@@ -189,6 +189,62 @@ function updateGeoLayer(link, gas_prices) {
 function init() {
     createID()
     initGeoLayer()
+}
+
+function stateStats(year) {
+    states_data = data;
+
+    // filter the state data for the year selected
+    filteredData = data.filter(years => years.Year == year)
+        // console.log(Object.entries(filteredData[0]))
+
+    // Extract gas prices into an array of numbers
+    gas_prices = []
+
+    // Loop though the filtered data and push each price to the list variable created 
+    Object.entries(filteredData[0]).forEach(([key, value]) => {
+        gas_prices.push(parseFloat(value))
+    });
+
+    // remove the first element in array as that is the year and irrelevant
+    gas_prices.shift();
+
+    avgGas = _.mean(gas_prices)
+
+    // Find the max price
+    maxGas = gas_prices.reduce(function(a, b) {
+        return Math.max(a, b);
+    });
+
+    // Find the min
+    minGas = gas_prices.reduce(function(a, b) {
+        return Math.min(a, b);
+    })
+    maxState = ""
+    minState = ""
+        //find the max state state and value append to list
+    Object.entries(filteredData[0]).forEach(([key, value]) => {
+        if (value == maxGas) {
+            maxState = key
+        } else if (value == minGas) {
+            minState = key
+        }
+    });
+
+    // Select the Panel Bodys using d3
+    panelBody1 = d3.select("#sample-metadata1")
+    panelBody2 = d3.select("#sample-metadata2")
+    panelBody3 = d3.select("#sample-metadata3")
+
+    // Reset the panel bodys for fresh new data
+    panelBody1.html("")
+    panelBody2.html("")
+    panelBody3.html("")
+
+    // Append the Panel Bodys
+    panelBody1.append('h4').attr('style', 'id = panel font-weight: bold').text(`$${avgGas.toFixed(2)}`)
+    panelBody2.append('h4').attr('style', 'id = panel font-weight: bold').text(`${maxState} : $${maxGas.toFixed(2)}`)
+    panelBody3.append('h4').attr('style', 'id = panel font-weight: bold').text(`${minState} : $${minGas.toFixed(2)}`)
 }
 
 init()

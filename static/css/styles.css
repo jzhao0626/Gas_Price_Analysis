@@ -263,11 +263,12 @@ footer {
 #lead {
     position: relative;
     height: 100vh;
-    min-height: 500px;
-    max-height: 1080px;
-    background: url(images/lead-bg.png);
+    /* min-height: 500px;
+    max-height: 1080px; */
+    background: url(../images/lead-bg.png);
     background-size: cover;
     padding: 15px;
+    background-repeat: no-repeat;
     overflow: hidden
 }
 
@@ -473,9 +474,10 @@ footer {
 }
 
 #education {
-    padding: 50px 15px 20px 15px;
+    padding: 50px 15px;
     border-bottom: 1px solid #dcd9d9;
-    text-align: center
+    text-align: center;
+    margin: 30px auto;
 }
 
 #education h2 {
@@ -523,6 +525,7 @@ footer {
 
 #projects {
     padding: 50px 15px;
+    margin: 30px auto;
     border-bottom: 1px solid #dcd9d9;
     text-align: center
 }
@@ -535,7 +538,6 @@ footer {
 .project {
     position: relative;
     max-width: 900px;
-    margin: 0 auto 30px auto;
     overflow: hidden;
     background: #fff;
     border-radius: 4px
