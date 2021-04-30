@@ -52,10 +52,28 @@ def index():
 
     return render_template("index.html")
 
+
+@app.route("/national")
+def national():
+
+    return render_template("national.html")
+
+
+@app.route("/state")
+def state():
+
+    return render_template("state.html")
+
+
+@app.route("/interestingFact")
+def IF():
+
+    return render_template("interestingFact.html")
+
+
 @app.route("/data")
 def data():
-    disaster_dict_flask = [disaster for disaster in Gas_DB.Disaster_Gas.find({}, {
-                                                                             "_id": False})]
+    disaster_dict_flask = [disaster for disaster in Gas_DB.Disaster_Gas.find({}, {"_id": False})]
     annual_dict_flask = [
         annual for annual in Gas_DB.Gas_Annual.find({}, {"_id": False})]
     month_dict_flask = [

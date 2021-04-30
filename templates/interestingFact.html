@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Interesting Facts</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link href="static/css/IF.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/font-awesome.min.css') }}">
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+
+<body>
+
+    <div id="mobile-menu-open" class="shadow-large">
+        <i class="fa fa-bars" aria-hidden="true"></i>
+    </div>
+
+    <!-- End #mobile-menu-toggle -->
+
+
+
+    <header>
+        <div id="mobile-menu-close">
+            <span>Close</span> <i class="fa fa-times" aria-hidden="true"></i>
+        </div>
+        <ul id="menu" class="shadow">
+            <!-- <li>
+            <a href="#about">Home</a>
+        </li> -->
+            <li>
+                <a href="/">National</a>
+            </li>
+            <li>
+                <a href="/state">State</a>
+            </li>
+            <li>
+                <a href="/data">Data</a>
+            </li>
+            <li>
+                <a href="/IF">Interesting Facts</a>
+            </li>
+        </ul>
+    </header>
+
+
+
+    <div class="row">
+        <div class="container" style="display: flex; justify-content: center; margin-top: 70px;">
+            <!-- <h2>Modal Example</h2> -->
+            <!-- Trigger the modal with a button -->
+            <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal"><span class="button__icon"><ion-icon name="boat-outline"></ion-icon></span></button>
+            <!-- Modal -->
+            <div class="modal fade" id="myModal" role="dialog">
+                <div class="modal-dialog">
+
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title1">Is There Enough Oil?</h4>
+                        </div>
+                        <div class="modal-body">
+                            <p>According to the U.S. Energy Information Administration’s (EIA) International Energy Outlook 2019 (IEO2019), the global supply of crude oil, other liquid hydrocarbons, and biofuels is expected to be adequate to meet the world's
+                                demand for liquid fuels through 2050. </p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="close" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Trigger the modal with a button -->
+            <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal2"><span class="button__icon"><ion-icon name="home-outline"></ion-icon></span></button>
+            <!-- Modal -->
+            <div class="modal fade" id="myModal2" role="dialog">
+                <div class="modal-dialog">
+
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title2">Net Imports</h4>
+                        </div>
+                        <div class="modal-body">
+                            <p>In 2020, U.S. total annual petroleum net imports (imports minus exports) from foreign countries averaged -65 million barrels per day (b/d).1 In other words, total annual U.S. petroleum exports in 2020 were 0.65 billion barrels
+                                per day greater than petroleum imports.</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="close" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Trigger the modal with a button -->
+            <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal3"><span class="button__icon"><ion-icon name="car-outline"></ion-icon></span></span></button>
+            <!-- Modal -->
+            <div class="modal fade" id="myModal3" role="dialog">
+                <div class="modal-dialog">
+
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Top Five Gasoline Consuming States</h4>
+                        </div>
+                        <div class="modal-body">
+                            <p>State and Share of total U.S. motor gasoline consumption: Texas 11% California 10% Florida 5% New York 4% Ohio 4%</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="close" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Trigger the modal with a button -->
+            <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal4"><span class="button__icon"><ion-icon name="enter-outline"></ion-icon></span></span></span></button>
+            <!-- Modal -->
+            <div class="modal fade" id="myModal4" role="dialog">
+                <div class="modal-dialog">
+
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Imports</h4>
+                        </div>
+                        <div class="modal-body">
+                            <p>The top five sources of U.S. crude oil imports by share of total crude oil imports in 2020 were: Canada 61% Mexico 11% Saudi Arabia 8% Colombia 4% Iraq 3%
+                            </p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="close" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Trigger the modal with a button -->
+            <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal5"><span class="button__icon"><ion-icon name="exit-outline"></ion-icon></span></span></span></button>
+            <!-- Modal -->
+            <div class="modal fade" id="myModal5" role="dialog">
+                <div class="modal-dialog">
+
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Exports</h4>
+                        </div>
+                        <div class="modal-body">
+                            <p>The top five destinations of U.S. crude oil exports by share of total oil exports in 2020 were: China 15% Canada 13% Netherlands 9% India 9% South Korea 8%
+                            </p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="close" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Trigger the modal with a button -->
+            <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal6"><span class="button__icon"><ion-icon name="water-outline"></ion-icon></span></span></span></button>
+            <!-- Modal -->
+            <div class="modal fade" id="myModal6" role="dialog">
+                <div class="modal-dialog">
+
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Gas Price Breakdown</h4>
+                        </div>
+                        <div class="modal-body">
+                            <img src="static\images\what_we_pay.jpg" style="width: 100%;">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="close" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Trigger the modal with a button -->
+            <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal7"><span class="button__icon"><ion-icon name="sunny-outline"></ion-icon></span></span></span></button>
+            <!-- Modal -->
+            <div class="modal fade" id="myModal7" role="dialog">
+                <div class="modal-dialog">
+
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Alternative Fuel Breakdown</h4>
+                        </div>
+                        <div class="modal-body">
+                            <img src="static\images\energy_consumption.jpg" style="width: 100%;">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="close" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="container" style="display: flex; justify-content: center; margin-top: 5px">
+            <img src="static\images\Shae.png" style="width: 75%">
+        </div>
+    </div>
+
+
+    <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js "></script>
+
+
+
+</body>
+
+</html>
